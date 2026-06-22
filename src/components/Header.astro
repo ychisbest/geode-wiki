@@ -1,0 +1,169 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">Geode</span>
+    </a>
+
+    <nav class="nav">
+      <a href="/" class:list={['nav-link', { active: currentPath === '/' }]}>首页</a>
+      <a href="/mods" class:list={['nav-link', { active: currentPath.startsWith('/mods') }]}>选模组</a>
+      <a href="/recommend" class:list={['nav-link', { active: currentPath === '/recommend' }]}>新手清单</a>
+      <a href="/install" class:list={['nav-link', { active: currentPath === '/install' }]}>安装与安全</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="/install" class="btn btn-primary btn-sm">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+        官方安装
+      </a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="菜单">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="/" class:list={['mobile-nav-link', { active: currentPath === '/' }]}>首页</a>
+    <a href="/mods" class:list={['mobile-nav-link', { active: currentPath.startsWith('/mods') }]}>选模组</a>
+    <a href="/recommend" class:list={['mobile-nav-link', { active: currentPath === '/recommend' }]}>新手清单</a>
+    <a href="/install" class:list={['mobile-nav-link', { active: currentPath === '/install' }]}>安装与安全</a>
+    <a href="/install" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">官方安装</a>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 10, 15, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-bright);
+  }
+
+  .logo:hover {
+    color: var(--color-primary-light);
+  }
+
+  .logo-icon {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+  }
+
+  .nav {
+    display: flex;
+    gap: var(--space-xl);
+  }
+
+  .nav-link {
+    color: var(--color-text-muted);
+    font-weight: 500;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-text-bright);
+  }
+
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: 1px;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    padding: var(--space-xs);
+  }
+
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    padding: var(--space-lg);
+    background: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav.active {
+    display: flex;
+  }
+
+  .mobile-nav-link {
+    padding: var(--space-sm) 0;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .mobile-nav-link.active {
+    color: var(--color-primary-light);
+  }
+
+  @media (max-width: 768px) {
+    .nav {
+      display: none;
+    }
+
+    .mobile-menu-btn {
+      display: block;
+    }
+
+    .header-actions .btn {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    mobileNav?.classList.toggle('active');
+  });
+</script>

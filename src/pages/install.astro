@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const desktop = [
+  ['Windows', '下载官方 Windows installer（.exe），运行后让安装器定位已安装的 Geometry Dash。完成后从 Steam 启动游戏并检查主菜单的 Geode 入口。'],
+  ['macOS', '下载官方 macOS installer（.pkg）。macOS 的安全提示应通过系统设置和发布者来源核验处理；不要从网盘寻找“修复版”。'],
+  ['Linux', '使用官方 Linux installer script。Linux / Proton 配置差异较大，遇到问题请以官方文档和 Discord 的当前指引为准。'],
+];
+---
+
+<BaseLayout title="安装与安全下载" description="从 Geode 官方来源安装 Geometry Dash 模组加载器；包含 Windows、macOS、Android 与 iOS 注意事项。">
+  <section class="install-hero"><div class="container"><p class="eyebrow">Official source only</p><h1>安全下载与安装</h1><p>下载入口只指向 Geode 官方网站和官方 GitHub releases。</p><a class="btn btn-accent btn-lg" href="https://geode-sdk.org/install" target="_blank" rel="noopener">打开官方安装页</a></div></section>
+
+  <section class="section" id="security"><div class="container two-col"><div><h2>Geode 是病毒吗？先做来源判断。</h2><p>Geode 会向 Geometry Dash 加载扩展代码，因此安全软件可能对安装器或注入行为提出警告。警告不是“安全”的证明，也不能直接证明恶意。</p><p>可验证的事实是：Geode 的代码和发布记录公开在官方 GitHub。任何二次分发、改名安装器、网盘整合包都不在可信链路里。</p></div><div class="checklist"><h3>下载前 4 项检查</h3><p>1. 地址是 <code>geode-sdk.org</code> 或 <code>github.com/geode-sdk</code></p><p>2. release 页面、文件名和版本号能对应</p><p>3. 不关闭杀毒软件去运行来源不明的文件</p><p>4. 发现可疑行为时停止安装，提交给官方渠道核验</p></div></div></section>
+
+  <section class="section shaded"><div class="container"><div class="section-title"><h2>桌面版 / Desktop</h2><p>先确认 Geometry Dash 已通过 Steam 正常启动，再运行官方安装器。</p></div><div class="platforms">{desktop.map(([name, text]) => <article class="card"><h3>{name}</h3><p>{text}</p><p class="success">成功标志：从正常的 Geometry Dash 主菜单可打开 Geode。</p></article>)}</div><p class="center"><a href="https://github.com/geode-sdk/geode/releases/latest" target="_blank" rel="noopener">查看最新官方 release 与文件校验值</a></p></div></section>
+
+  <section class="section" id="mobile"><div class="container"><div class="section-title"><h2>移动端 / Mobile</h2><p>先看平台限制；手机不适合照搬 PC 教程。</p></div><div class="platforms"><article class="card"><h3>Android</h3><p>从官方安装页选择与你设备架构和当前 Geometry Dash 版本匹配的 Android 包。出现 <code>failed to link libraries</code> 时，先核对游戏来源、GD 版本、ABI 和安装顺序。</p><p>不要混用来源不明的 APK、旧补丁或不同架构文件。</p></article><article class="card"><h3>iOS / iPadOS</h3><p>官方提供 iOS 构建，但移动端安装和签名流程更复杂，支持状态可能变化。只想稳定游玩的新手，应先确认官方安装页的当前要求，再决定是否折腾。</p><p>不要购买或安装宣称“免签永久稳定”的第三方包。</p></article></div></div></section>
+
+  <section class="section shaded"><div class="container narrow"><h2>安装后按钮不见了？</h2><ol class="steps"><li>确认你启动的是安装器检测到的那份 Geometry Dash。</li><li>确认 GD 和 Geode 的版本组合在官方 release / 安装页中受支持。</li><li>查看安全软件的隔离记录；只恢复能确认来自官方 release 的文件。</li><li>尝试 Safe Mode；若能进入，先禁用最近安装的 mod。</li><li>仍未解决时，带上平台、GD / Geode 版本、安装器日志和截图到官方 Discord。</li></ol></div></section>
+</BaseLayout>
+
+<style>
+ .install-hero{text-align:center;padding:5rem 0;background:linear-gradient(180deg,var(--color-bg-secondary),var(--color-bg));}.install-hero h1{margin:.5rem 0;}.install-hero p{color:var(--color-text-muted);}.eyebrow{color:var(--color-accent);font-weight:700;letter-spacing:.08em;font-size:.8rem;text-transform:uppercase}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}.checklist{background:var(--color-bg-card);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:1.25rem}.checklist p{color:var(--color-text-muted);margin:.6rem 0}.shaded{background:var(--color-bg-secondary)}.platforms{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.platforms p{color:var(--color-text-muted);font-size:.95rem}.success{color:var(--color-success)!important}.center{text-align:center;margin-top:1.5rem}.narrow{max-width:840px}.steps{display:grid;gap:1rem;padding-left:1.25rem;margin-top:1rem}@media(max-width:768px){.two-col,.platforms{grid-template-columns:1fr}}
+</style>

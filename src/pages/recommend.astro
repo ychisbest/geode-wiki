@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="新手模组选择清单" description="为 Geometry Dash Geode 新手提供稳定优先的模组选择流程。">
+  <section class="hero"><div class="container narrow"><p class="eyebrow">No fake rankings</p><h1>新手模组清单：先少，再稳。</h1><p>本站不编造下载量、评分或“必装 mod”名单。用这个流程从官方浏览器选择适合你的模组。</p></div></section>
+  <section class="section"><div class="container grid"><article class="card"><b>01 · 先确定目的</b><h2>玩家 / 练习 / 创作</h2><p>一次只解决一个需求：界面便利、练习辅助或编辑器工作流。</p></article><article class="card"><b>02 · 看兼容性</b><h2>版本与平台优先</h2><p>确认当前 GD、Geode 和你的 Windows / macOS / Android / iOS 环境都在支持范围内。</p></article><article class="card"><b>03 · 小步验证</b><h2>一个一个装</h2><p>每安装一个就启动一次；把模组名称记下来，方便 Safe Mode 回退。</p></article></div><p class="cta"><a class="btn btn-accent" href="https://geode-sdk.org/mods" target="_blank" rel="noopener">到官方 Mods Browser 开始筛选</a></p></div></section>
+</BaseLayout>
+<style>.hero{text-align:center;padding:5rem 0;background:linear-gradient(180deg,var(--color-bg-secondary),var(--color-bg))}.narrow{max-width:760px}.hero p{color:var(--color-text-muted);font-size:1.1rem}.eyebrow{color:var(--color-accent);font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}.grid{grid-template-columns:repeat(3,1fr)}.card>b{color:var(--color-accent)}.card h2{margin:.6rem 0}.card p{color:var(--color-text-muted)}.cta{text-align:center;margin-top:2rem}@media(max-width:768px){.grid{grid-template-columns:1fr}}</style>

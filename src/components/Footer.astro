@@ -1,0 +1,148 @@
+---
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <span class="logo-icon">⬡</span>
+          <span class="logo-text">Geode</span>
+        </a>
+        <p class="footer-desc">面向 Geometry Dash Geode 用户的中文安装、兼容性与故障排查指引。</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>快速链接</h4>
+        <a href="/mods">选择兼容模组</a>
+        <a href="/recommend">新手选择清单</a>
+        <a href="/install">安装与安全</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>社区</h4>
+        <a href="https://discord.gg/geode" target="_blank" rel="noopener">Discord</a>
+        <a href="https://github.com/geode-sdk" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://twitter.com/GeodeSDK" target="_blank" rel="noopener">Twitter</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>官方来源</h4>
+        <a href="https://github.com/geode-sdk/geode" target="_blank" rel="noopener">开源代码</a>
+        <a href="https://github.com/geode-sdk/geode/releases" target="_blank" rel="noopener">官方 Releases</a>
+        <a href="https://docs.geode-sdk.org" target="_blank" rel="noopener">官方文档</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">非官方中文指南 · 以 Geode 官方资料为准</p>
+      <div class="footer-badges">
+        <span class="badge badge-success">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          官方来源优先
+        </span>
+        <span class="badge badge-primary">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
+          开源项目
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-3xl) 0 var(--space-xl);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-bright);
+    margin-bottom: var(--space-md);
+  }
+
+  .logo-icon {
+    color: var(--color-primary);
+  }
+
+  .footer-desc {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .footer-links h4 {
+    color: var(--color-text-bright);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-md);
+  }
+
+  .footer-links a {
+    display: block;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    padding: var(--space-xs) 0;
+    transition: color 0.2s ease;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-primary-light);
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .copyright {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .footer-badges {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: var(--space-md);
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

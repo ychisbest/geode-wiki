@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="选择兼容模组" description="通过 Geode 官方 Mods Browser 选择与当前平台和 Geometry Dash 版本兼容的模组。">
+  <section class="hero"><div class="container narrow"><p class="eyebrow">Stable first</p><h1>找不到 mod？不要用第三方列表硬搜。</h1><p>官方 Mods Browser 会显示当前可用的模组信息。可见性会受你的平台、Geode / Geometry Dash 版本和模组兼容声明影响。</p><a class="btn btn-accent btn-lg" href="https://geode-sdk.org/mods" target="_blank" rel="noopener">打开官方 Mods Browser</a></div></section>
+  <section class="section"><div class="container grid"><article class="card"><h2>安装前</h2><p>确认模组明确支持你的 GD 版本和平台；查看更新时间、说明和已知限制。</p></article><article class="card"><h2>安装时</h2><p>一次只安装一个。每次启动验证后再加下一个，这样崩溃时能准确定位。</p></article><article class="card"><h2>显示 outdated</h2><p>表示发布者声明的兼容范围可能已落后于你的环境。不要强行启用；等待更新或选择兼容替代品。</p></article></div></section>
+  <section class="section shaded"><div class="container narrow"><h2>Geode 能替代 MegaHack 吗？</h2><p>两者不是一对一替换关系。Geode 是模组加载器和 SDK；它可以加载社区提供的功能，但每个功能的质量、维护状态和平台支持要分别核验。先写下你需要的功能，再在官方浏览器中选择兼容、维护活跃的 mod。</p><p class="warning">涉及录像、速度、noclip 或修改游戏行为的功能，应仅在合适的单人/练习环境使用，并遵守社区和平台规则。</p></div></section>
+</BaseLayout>
+
+<style>.hero{text-align:center;padding:5rem 0;background:radial-gradient(circle at 50% 0,rgba(108,92,231,.25),transparent 65%)}.narrow{max-width:800px}.hero p{color:var(--color-text-muted);font-size:1.1rem;margin:1rem auto 1.5rem}.eyebrow{color:var(--color-accent);font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}.grid{grid-template-columns:repeat(3,1fr)}.card p{color:var(--color-text-muted);margin-top:.5rem}.shaded{background:var(--color-bg-secondary)}.warning{color:var(--color-warning)!important}@media(max-width:768px){.grid{grid-template-columns:1fr}}</style>

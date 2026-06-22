@@ -1,17 +1,83 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Geode 急救与安装指南" description="Geometry Dash Geode 的安全下载、崩溃排查、版本兼容与移动端安装指南。">
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Geometry Dash · Geode Mod Loader / SDK</p>
+      <h1>Geode 出问题了？<br /><span>先恢复游戏，再处理模组。</span></h1>
+      <p class="lead">面向玩家的中文急救指南：安装被拦截、Geode 按钮消失、更新后闪退、Android 装不上，都从这里开始。</p>
+      <div class="actions">
+        <a class="btn btn-accent btn-lg" href="#crash">游戏打不开，立即排查</a>
+        <a class="btn btn-secondary btn-lg" href="/install">安全安装 Geode</a>
+      </div>
+      <p class="source-note">Geode 是 Geometry Dash 的非官方开源扩展，不是 RobTop 官方产品。本站不提供二次打包下载。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title"><h2>你现在卡在哪？</h2><p>选择症状，而不是盲目重装。</p></div>
+      <div class="grid cards">
+        <a class="card" href="#crash"><strong>一启动就崩 / 黑屏</strong><span>先用 Safe Mode 排除模组，再看 crash log。</span></a>
+        <a class="card" href="#update"><strong>更新 GD 后不能用</strong><span>判断 GD、Geode、mod 三层版本是否匹配。</span></a>
+        <a class="card" href="/install#security"><strong>杀毒软件报警</strong><span>只验证官方来源与发布文件，不把提示一概当误报。</span></a>
+        <a class="card" href="/install#mobile"><strong>Android / iOS 安装失败</strong><span>移动端流程和限制与桌面版不同。</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shaded" id="crash">
+    <div class="container narrow">
+      <p class="eyebrow">5-minute recovery · 5 分钟止血</p>
+      <h2>Geode 一打开就崩：按这个顺序排查</h2>
+      <ol class="recovery">
+        <li><strong>先停止反复重装。</strong>保留现状；不要在没有备份时删除 Geometry Dash 的存档或本地关卡。</li>
+        <li><strong>回想最后一次变化。</strong>刚更新 Geometry Dash、Geode 或某个 mod，优先怀疑这一次变化。</li>
+        <li><strong>尝试 Safe Mode。</strong>启动时按住 <kbd>Shift</kbd>，让 Geode 跳过加载已启用的 mod；能进入游戏说明更可能是 mod 冲突。</li>
+        <li><strong>在 Geode 的 mod 列表禁用最近安装或更新的 mod。</strong>每次只恢复一个，确认能启动后再继续。</li>
+        <li><strong>仍然崩溃时再看日志并求助。</strong>附上 GD 版本、Geode 版本、平台、复现步骤与 crash log；不要只发“打不开”。</li>
+      </ol>
+      <div class="warning"><strong>Safe Mode 也进不去？</strong>先备份配置与存档，再通过 Geode 官方文档或 Discord 获取与你的平台对应的清理步骤。不要随机删除游戏目录里的文件。</div>
+    </div>
+  </section>
+
+  <section class="section" id="update">
+    <div class="container">
+      <div class="section-title"><h2>GD 更新后还能不能用？</h2><p>兼容性不是单一版本号，而是三层关系。</p></div>
+      <div class="decision-grid">
+        <div><b>1. Geometry Dash</b><p>记录游戏的准确版本。</p></div>
+        <div><b>2. Geode</b><p>确认当前 release 是否支持该 GD 版本。</p></div>
+        <div><b>3. 已安装 mod</b><p>确认每个 mod 的平台和 GD 版本要求。</p></div>
+      </div>
+      <div class="checklist">
+        <h3>更新决策</h3>
+        <p><strong>官方 release 尚未声明支持：</strong>不要强行安装；等待兼容更新，或使用自己已验证可用的版本组合。</p>
+        <p><strong>Geode 已支持但启动崩：</strong>以 Safe Mode 启动，逐个禁用 mod。新 GD 版本最常见的是旧 mod 失配。</p>
+        <p><strong>准备更新前：</strong>同步游戏存档，并备份关卡项目、Geode 配置和 mod 列表。备份不是可选项。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shaded">
+    <div class="container two-col">
+      <div><p class="eyebrow">Beginner mods · 新手装模组</p><h2>稳定优先，不要一次装十个。</h2><p>先从官方 Mods Browser 搜索并读取模组页面的版本与平台说明。每装一个就重启测试；出现异常时可以准确回退。</p><a class="btn btn-primary" href="https://geode-sdk.org/mods" target="_blank" rel="noopener">打开官方 Mods Browser</a></div>
+      <div class="checklist"><h3>第一批模组的筛选规则</h3><p>✓ 最近仍在维护</p><p>✓ 明确支持你的 GD 版本与平台</p><p>✓ 只选择你确实需要的一类功能</p><p>✕ 不要因为“热门”跳过兼容说明</p><p>✕ 练习或修改类功能不要用于排行榜/验证场景</p></div>
+    </div>
+  </section>
+
+  <section class="section sources"><div class="container"><h2>核验来源 / Sources</h2><p>内容以 Geode 官方站、官方 GitHub releases 与文档为准；release 版本会变化，请在下载前再次确认。</p><div class="source-links"><a href="https://geode-sdk.org" target="_blank" rel="noopener">Official site</a><a href="https://github.com/geode-sdk/geode/releases" target="_blank" rel="noopener">Official releases</a><a href="https://docs.geode-sdk.org" target="_blank" rel="noopener">Official docs</a><a href="https://discord.gg/9e43WMKzhp" target="_blank" rel="noopener">Official Discord</a></div></div></section>
+</BaseLayout>
+
+<style>
+  .hero { padding: 6rem 0; text-align: center; background: radial-gradient(circle at 50% 0, rgba(108,92,231,.3), transparent 60%), var(--color-bg); }
+  .hero h1 { font-size: clamp(2.4rem, 6vw, 4.5rem); margin: .5rem 0 1rem; } .hero h1 span { color: var(--color-accent); }
+  .eyebrow { color: var(--color-accent); text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; font-weight: 700; } .lead { max-width: 680px; margin: 0 auto 1.5rem; font-size: 1.15rem; color: var(--color-text-muted); }
+  .actions,.source-links { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; } .source-note { color:var(--color-text-muted); font-size:.85rem; margin-top:1.5rem; }
+  .cards { grid-template-columns: repeat(4,1fr); }.cards .card { color:var(--color-text); display:flex; flex-direction:column; gap:.5rem; }.cards span { color:var(--color-text-muted); font-size:.9rem; }
+  .shaded { background: var(--color-bg-secondary); }.narrow { max-width: 840px; }.recovery { display:grid; gap:1rem; margin:1.5rem 0; padding-left:1.3rem; }.recovery li { padding-left:.4rem; }.warning,.checklist { background:var(--color-bg-card); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:1.25rem; }.warning { border-left:4px solid var(--color-warning); }
+  .decision-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:1rem; }.decision-grid div { padding:1.25rem; background:var(--color-bg-card); border-radius:var(--radius-md); border:1px solid var(--color-border); }.decision-grid p,.checklist p { margin:.5rem 0 0; color:var(--color-text-muted); }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }.sources { text-align:center; }.source-links { margin-top:1rem; }
+  @media(max-width:768px){ .cards,.decision-grid,.two-col{grid-template-columns:1fr;} .hero{padding:4rem 0;} }
+</style>

@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import partnerLinks from '../../links.json';
+
+type PartnerLink = {
+  html: string;
+};
+
+const links = partnerLinks as PartnerLink[];
+---
+
+<BaseLayout title="友情链接" description="Geode Wiki 收录的友情链接。">
+  <section class="section">
+    <div class="container narrow">
+      <p class="eyebrow">Partner Links</p>
+      <h1>友情链接</h1>
+      <p class="lead">这里收录分配给 Geode Wiki 的外部合作链接。</p>
+
+      <div class="partner-links">
+        {
+          links.map((link, index) => (
+            <article class="partner-card">
+              <p class="partner-label">Link {index + 1}</p>
+              <div class="partner-copy" set:html={link.html} />
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .narrow {
+    max-width: 840px;
+  }
+
+  .eyebrow {
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: .8rem;
+    font-weight: 700;
+  }
+
+  .lead {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    margin: var(--space-md) 0 var(--space-xl);
+  }
+
+  .partner-links {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .partner-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+  }
+
+  .partner-label {
+    color: var(--color-text-muted);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    margin-bottom: var(--space-sm);
+    text-transform: uppercase;
+  }
+
+  .partner-copy {
+    color: var(--color-text);
+    line-height: 1.9;
+  }
+
+  .partner-copy :global(a) {
+    font-weight: 700;
+  }
+</style>

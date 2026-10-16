@@ -8,18 +8,111 @@ const desktop = [
 ];
 ---
 
-<BaseLayout title="安装与安全下载" description="从 Geode 官方来源安装 Geometry Dash 模组加载器；包含 Windows、macOS、Android 与 iOS 注意事项。">
-  <section class="install-hero"><div class="container"><p class="eyebrow">Official source only</p><h1>安全下载与安装</h1><p>下载入口只指向 Geode 官方网站和官方 GitHub releases。</p><a class="btn btn-accent btn-lg" href="https://geode-sdk.org/install" target="_blank" rel="noopener">打开官方安装页</a></div></section>
+<BaseLayout title="Geode 安装与安全下载（官方来源 · Windows / macOS / Android / iOS）" description="只从 geode-sdk.org 与官方 GitHub Releases 安装 Geode。含杀软报警判断、桌面版步骤、Android / iOS 限制、按钮消失与卸载说明。本站不提供网盘或二次打包。">
+  <section class="install-hero">
+    <div class="container">
+      <p class="eyebrow">Official source only</p>
+      <h1>安全下载与安装</h1>
+      <p>下载入口只指向 Geode 官方网站和官方 GitHub releases。不要使用网盘整合包、改名安装器或来路不明的 APK。</p>
+      <div class="actions">
+        <a class="btn btn-accent btn-lg" href="https://geode-sdk.org/install" target="_blank" rel="noopener">打开官方安装页</a>
+        <a class="btn btn-secondary btn-lg" href="https://github.com/geode-sdk/geode/releases/latest" target="_blank" rel="noopener">查看官方 Releases</a>
+        <a class="btn btn-secondary btn-lg" href="/compatibility">版本兼容怎么查</a>
+      </div>
+    </div>
+  </section>
 
-  <section class="section" id="security"><div class="container two-col"><div><h2>Geode 是病毒吗？先做来源判断。</h2><p>Geode 会向 Geometry Dash 加载扩展代码，因此安全软件可能对安装器或注入行为提出警告。警告不是“安全”的证明，也不能直接证明恶意。</p><p>可验证的事实是：Geode 的代码和发布记录公开在官方 GitHub。任何二次分发、改名安装器、网盘整合包都不在可信链路里。</p></div><div class="checklist"><h3>下载前 4 项检查</h3><p>1. 地址是 <code>geode-sdk.org</code> 或 <code>github.com/geode-sdk</code></p><p>2. release 页面、文件名和版本号能对应</p><p>3. 不关闭杀毒软件去运行来源不明的文件</p><p>4. 发现可疑行为时停止安装，提交给官方渠道核验</p></div></div></section>
+  <section class="section" id="security">
+    <div class="container two-col">
+      <div>
+        <h2>Geode 是病毒吗？先做来源判断。</h2>
+        <p>Geode 作为 mod loader，会扩展/注入 Geometry Dash，安全软件对安装器或行为报警<strong>并不罕见</strong>。报警不等于已确认恶意，也不等于可以无视——判断标准是<strong>来源能否核验</strong>。</p>
+        <p>可验证的事实是：Geode 的代码和发布记录公开在官方 GitHub。任何二次分发、改名安装器、网盘整合包都不在可信链路里。</p>
+        <p>唯一可信链路：<code>geode-sdk.org</code> 与 <code>github.com/geode-sdk</code>。明确拒绝：网盘、群文件、「免杀版」、「已破解整合包」、「永久免签 iOS」第三方包。</p>
+      </div>
+      <div class="checklist">
+        <h3>下载前 4 项检查</h3>
+        <p>1. 地址是 <code>geode-sdk.org</code> 或 <code>github.com/geode-sdk</code></p>
+        <p>2. release 页面、文件名和版本号能对应</p>
+        <p>3. 不关闭杀毒软件去运行来源不明的文件</p>
+        <p>4. 发现可疑行为时停止安装，提交给官方渠道核验</p>
+      </div>
+    </div>
+  </section>
 
-  <section class="section shaded"><div class="container"><div class="section-title"><h2>桌面版 / Desktop</h2><p>先确认 Geometry Dash 已通过 Steam 正常启动，再运行官方安装器。</p></div><div class="platforms">{desktop.map(([name, text]) => <article class="card"><h3>{name}</h3><p>{text}</p><p class="success">成功标志：从正常的 Geometry Dash 主菜单可打开 Geode。</p></article>)}</div><p class="center"><a href="https://github.com/geode-sdk/geode/releases/latest" target="_blank" rel="noopener">查看最新官方 release 与文件校验值</a></p></div></section>
+  <section class="section shaded">
+    <div class="container">
+      <div class="section-title"><h2>桌面版 / Desktop</h2><p>先确认 Geometry Dash 已通过 Steam 正常启动，再运行官方安装器。</p></div>
+      <div class="platforms">{desktop.map(([name, text]) => <article class="card"><h3>{name}</h3><p>{text}</p><p class="success">成功标志：从正常的 Geometry Dash 主菜单可打开 Geode。</p></article>)}</div>
+      <p class="center"><a href="https://github.com/geode-sdk/geode/releases/latest" target="_blank" rel="noopener">查看最新官方 release 与文件校验值</a></p>
+    </div>
+  </section>
 
-  <section class="section" id="mobile"><div class="container"><div class="section-title"><h2>移动端 / Mobile</h2><p>先看平台限制；手机不适合照搬 PC 教程。</p></div><div class="platforms"><article class="card"><h3>Android</h3><p>从官方安装页选择与你设备架构和当前 Geometry Dash 版本匹配的 Android 包。出现 <code>failed to link libraries</code> 时，先核对游戏来源、GD 版本、ABI 和安装顺序。</p><p>不要混用来源不明的 APK、旧补丁或不同架构文件。</p></article><article class="card"><h3>iOS / iPadOS</h3><p>官方提供 iOS 构建，但移动端安装和签名流程更复杂，支持状态可能变化。只想稳定游玩的新手，应先确认官方安装页的当前要求，再决定是否折腾。</p><p>不要购买或安装宣称“免签永久稳定”的第三方包。</p></article></div></div></section>
+  <section class="section" id="mobile">
+    <div class="container">
+      <div class="section-title"><h2>移动端 / Mobile</h2><p>先看平台限制；手机不适合照搬 PC 教程。</p></div>
+      <div class="platforms platforms-2">
+        <article class="card">
+          <h3>Android</h3>
+          <p>只用官方安装页给出的 Android 流程 / launcher（以官网当前说明为准）。出现 <code>failed to link libraries</code> 时，先核对游戏来源、GD 版本、ABI 和安装顺序。</p>
+          <p>不要混用来源不明的 APK、旧补丁、不同架构文件，或「修改版 GD + Geode」打包。</p>
+          <p><strong>禁止</strong>第三方 APK 站与非官方网盘包。</p>
+        </article>
+        <article class="card">
+          <h3>iOS / iPadOS</h3>
+          <p>官方有 iOS 构建，但偏实验性、签名流程复杂；新手若只想稳定玩，应先读官网再决定是否折腾。</p>
+          <p><strong>禁止</strong>购买或安装宣称「免签永久稳定」的第三方包。</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-  <section class="section shaded"><div class="container narrow"><h2>安装后按钮不见了？</h2><ol class="steps"><li>确认你启动的是安装器检测到的那份 Geometry Dash。</li><li>确认 GD 和 Geode 的版本组合在官方 release / 安装页中受支持。</li><li>查看安全软件的隔离记录；只恢复能确认来自官方 release 的文件。</li><li>尝试 Safe Mode；若能进入，先禁用最近安装的 mod。</li><li>仍未解决时，带上平台、GD / Geode 版本、安装器日志和截图到官方 Discord。</li></ol></div></section>
+  <section class="section shaded" id="button-missing">
+    <div class="container narrow">
+      <h2>安装后按钮不见了？</h2>
+      <ol class="steps">
+        <li>确认你启动的是安装器检测到的那份 Geometry Dash。</li>
+        <li>确认 GD 和 Geode 的版本组合在官方 release / 安装页中受支持（核验见 <a href="/compatibility">/compatibility</a>）。</li>
+        <li>查看安全软件的隔离记录；只恢复能确认来自官方 release 的文件。</li>
+        <li>尝试 Safe Mode；若能进入，先禁用最近安装的 mod。</li>
+        <li>仍未解决时，带上平台、GD / Geode 版本、安装器日志和截图到官方 Discord。</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="uninstall">
+    <div class="container narrow">
+      <h2>如何卸载 Geode / 恢复无法加载模组的状态？</h2>
+      <p class="lead-inline">先备份 Geometry Dash 存档、本地关卡与 Geode 配置；不要在崩溃时直接删随机文件。本站不固化易过期的目录清单——以官网与文档当前步骤为准。</p>
+      <ol class="steps">
+        <li><strong>若还能进游戏：</strong>打开 Geode 菜单，禁用或卸载模组；确认主菜单仍正常。</li>
+        <li><strong>按官方方式移除加载器：</strong>打开 <a href="https://geode-sdk.org/install" target="_blank" rel="noopener">官方安装说明</a> 与 <a href="https://docs.geode-sdk.org" target="_blank" rel="noopener">官方文档</a>，使用当前版本提供的卸载/清理指引。</li>
+        <li><strong>Steam 用户：</strong>在确认已按官方步骤处理后，如仍异常，可对 Geometry Dash 使用「验证游戏文件完整性」，再观察是否回到无 Geode 的原版启动。</li>
+        <li><strong>杀软隔离导致半安装：</strong>只恢复能对应到官方 release 文件名/来源的条目；否则从官方重新下载安装器。</li>
+        <li><strong>仍失败：</strong>带平台、GD 版本、Geode 版本、安装器日志与截图到官方 Discord 求助。</li>
+      </ol>
+      <div class="checklist">
+        <h3>卸载 FAQ</h3>
+        <p><strong>卸载会丢存档吗？</strong>卸加载器与模组不一定等于删 Steam 云存档，但本地关卡/配置仍可能受影响——<strong>先备份</strong>。</p>
+        <p><strong>只想关掉模组不想卸 Geode？</strong>Safe Mode（Shift）或在菜单里禁用即可；见 <a href="/#crash">首页 #crash</a>。</p>
+        <p><strong>按钮消失算不算没卸干净？</strong>先按 <a href="#button-missing">#button-missing</a> 排查是否装错目录/版本不匹配/文件被隔离。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shaded">
+    <div class="container">
+      <div class="section-title"><h2>相关指南</h2></div>
+      <div class="grid cards-inline">
+        <a class="card" href="/#crash"><strong>崩溃急救 / Safe Mode</strong><span>先恢复能进游戏</span></a>
+        <a class="card" href="/compatibility"><strong>版本兼容</strong><span>三层版本怎么查</span></a>
+        <a class="card" href="/mods"><strong>选模</strong><span>官方 Mods Browser</span></a>
+        <a class="card" href="/recommend"><strong>新手清单</strong><span>稳定优先流程</span></a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
- .install-hero{text-align:center;padding:5rem 0;background:linear-gradient(180deg,var(--color-bg-secondary),var(--color-bg));}.install-hero h1{margin:.5rem 0;}.install-hero p{color:var(--color-text-muted);}.eyebrow{color:var(--color-accent);font-weight:700;letter-spacing:.08em;font-size:.8rem;text-transform:uppercase}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}.checklist{background:var(--color-bg-card);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:1.25rem}.checklist p{color:var(--color-text-muted);margin:.6rem 0}.shaded{background:var(--color-bg-secondary)}.platforms{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.platforms p{color:var(--color-text-muted);font-size:.95rem}.success{color:var(--color-success)!important}.center{text-align:center;margin-top:1.5rem}.narrow{max-width:840px}.steps{display:grid;gap:1rem;padding-left:1.25rem;margin-top:1rem}@media(max-width:768px){.two-col,.platforms{grid-template-columns:1fr}}
+ .install-hero{text-align:center;padding:5rem 0;background:linear-gradient(180deg,var(--color-bg-secondary),var(--color-bg));}.install-hero h1{margin:.5rem 0;}.install-hero p{color:var(--color-text-muted);max-width:720px;margin:.75rem auto 1.25rem}.eyebrow{color:var(--color-accent);font-weight:700;letter-spacing:.08em;font-size:.8rem;text-transform:uppercase}.actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}.checklist{background:var(--color-bg-card);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:1.25rem;margin-top:1.25rem}.checklist p{color:var(--color-text-muted);margin:.6rem 0}.shaded{background:var(--color-bg-secondary)}.platforms{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.platforms-2{grid-template-columns:repeat(2,1fr)}.platforms p{color:var(--color-text-muted);font-size:.95rem}.success{color:var(--color-success)!important}.center{text-align:center;margin-top:1.5rem}.narrow{max-width:840px}.steps{display:grid;gap:1rem;padding-left:1.25rem;margin-top:1rem}.lead-inline{color:var(--color-text-muted);margin:1rem 0}.cards-inline{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}.cards-inline .card{color:var(--color-text);display:flex;flex-direction:column;gap:.35rem}.cards-inline span{color:var(--color-text-muted);font-size:.9rem}@media(max-width:768px){.two-col,.platforms,.platforms-2,.cards-inline{grid-template-columns:1fr}}
 </style>

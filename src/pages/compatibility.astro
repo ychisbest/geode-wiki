@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Geode 兼容性：GD 版本、2.2 / 2.208 与模组是否匹配"
+  description="查 Geometry Dash、Geode 与模组三层版本是否匹配。说明如何核验 2.2 / 2.208 类支持情况；以官方 release 为准，本站不编造版本表或提供非官方补丁包。"
+>
+  <section class="hero">
+    <div class="container narrow">
+      <p class="eyebrow">GD · Geode · Mods</p>
+      <h1>Geode 兼容性：先看三层版本</h1>
+      <p class="lead">
+        搜索「Geode 支持哪个 GD 版本」「geode gd 2.208」时，答案不在过期博客里的死表，而在<strong>当前官方 release 说明</strong>。本页教你怎么核验，并说明崩溃时该等更新、回退还是关模组。
+      </p>
+      <div class="actions">
+        <a class="btn btn-accent btn-lg" href="https://github.com/geode-sdk/geode/releases/latest" target="_blank" rel="noopener">打开官方 Releases</a>
+        <a class="btn btn-secondary btn-lg" href="https://geode-sdk.org/install" target="_blank" rel="noopener">官方安装页</a>
+        <a class="btn btn-secondary btn-lg" href="/#crash">崩溃急救</a>
+      </div>
+      <p class="source-note">本站不提供“适配包 / 网盘补丁 / 二次打包”。版本数字会变，请以 geode-sdk.org 与官方 GitHub 当次声明为准。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>兼容性不是一个版本号</h2>
+        <p>三层都对上，游戏才稳；只对一层仍可能秒崩。</p>
+      </div>
+      <div class="decision-grid">
+        <div>
+          <b>1. Geometry Dash</b>
+          <p>记下游戏里的准确版本（不要只写“最新”或口头上的 2.2）。</p>
+        </div>
+        <div>
+          <b>2. Geode</b>
+          <p>查当前官方 release / 安装页是否声明支持该 GD 版本与你的平台。</p>
+        </div>
+        <div>
+          <b>3. 已装模组</b>
+          <p>每个 mod 都有自己的 GD / 平台要求；旧模组是更新后崩溃的最常见原因。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shaded" id="verify">
+    <div class="container narrow">
+      <p class="eyebrow">Evergreen checklist</p>
+      <h2>怎么确认「现在」能不能用？</h2>
+      <ol class="steps">
+        <li><strong>记录 GD 版本。</strong>在游戏或平台商店页查看完整版本号，便于对照 release 说明。</li>
+        <li><strong>打开官方来源。</strong>仅使用 <a href="https://geode-sdk.org/install" target="_blank" rel="noopener">geode-sdk.org/install</a> 与 <a href="https://github.com/geode-sdk/geode/releases" target="_blank" rel="noopener">GitHub Releases</a>，阅读最新 release 的支持说明。</li>
+        <li><strong>官方尚未声明支持：</strong>等待兼容更新，或继续使用你已验证可用的组合。不要安装来路不明的“2.208 专用包”。</li>
+        <li><strong>Geode 已支持但启动崩溃：</strong>用 Safe Mode（启动时按住 <kbd>Shift</kbd>）进入，逐个禁用模组。详见 <a href="/#crash">首页急救流程</a>。</li>
+        <li><strong>模组显示 outdated：</strong>表示发布者声明可能落后于你的环境。先禁用，等待更新或换兼容替代；不要强行启用。</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="version-numbers">
+    <div class="container narrow">
+      <h2>关于 2.2 / 2.208 这类搜索</h2>
+      <p>
+        玩家常搜具体小版本（例如社区讨论里的 2.2、2.208 系列）。这些数字会随 RobTop 更新而变化；Geode 每个 release 的支持范围也可能变化。
+      </p>
+      <p>
+        <strong>因此本站不发布一份“已支持 / 不支持”的死表。</strong>死表会在下次更新后误导你去装错误组合。正确做法是：带上你的 GD 版本号，对照<strong>当前</strong>官方 release 说明；拿不准就等官方更新，而不是下载第三方补丁。
+      </p>
+      <div class="warning">
+        <strong>不要做的事：</strong>从网盘、论坛附件或未知 APK 站获取“破解适配 / 整合 Geode”。那会同时破坏来源可信度与版本判断。安全安装见 <a href="/install">/install</a>。
+      </div>
+    </div>
+  </section>
+
+  <section class="section shaded">
+    <div class="container">
+      <div class="section-title">
+        <h2>决策一览</h2>
+        <p>先分类，再动手。</p>
+      </div>
+      <div class="checklist">
+        <p><strong>官方未声明支持你的 GD：</strong>等待兼容 release；保留备份；勿混装非官方补丁。</p>
+        <p><strong>Geode 已支持，一启动就崩：</strong>Safe Mode → 禁用最近安装/更新的 mod → 再看 crash log。</p>
+        <p><strong>只有个别 mod 红字 / outdated：</strong>关掉它们即可继续玩，等待作者更新。</p>
+        <p><strong>准备更新 Geometry Dash 之前：</strong>同步存档，备份本地关卡、Geode 配置与模组列表。备份不是可选项。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-col">
+      <div>
+        <p class="eyebrow">Next steps</p>
+        <h2>装得上，还要选得对</h2>
+        <p>版本对齐之后，用官方 Mods Browser 按平台与 GD 要求筛选模组；新手请走稳定优先流程，不要一次装十个。</p>
+        <div class="actions" style="justify-content:flex-start">
+          <a class="btn btn-primary" href="https://geode-sdk.org/mods" target="_blank" rel="noopener">官方 Mods Browser</a>
+          <a class="btn btn-secondary" href="/recommend">新手清单</a>
+          <a class="btn btn-secondary" href="/mods">选模说明</a>
+        </div>
+      </div>
+      <div class="checklist">
+        <h3>相关指南</h3>
+        <p><a href="/install">安全下载与安装</a> — 杀软、桌面与移动端</p>
+        <p><a href="/#crash">崩溃急救 / Safe Mode</a> — 先恢复能进游戏</p>
+        <p><a href="/install#uninstall">卸载说明</a> — 卸 Geode 前先备份</p>
+        <p><a href="/install#button-missing">按钮不见了</a> — 安装是否成功</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section sources">
+    <div class="container">
+      <h2>核验来源 / Sources</h2>
+      <p>兼容结论以 Geode 官方站、官方 GitHub releases 与文档为准；请在操作前再次打开链接确认。</p>
+      <div class="source-links">
+        <a href="https://geode-sdk.org" target="_blank" rel="noopener">Official site</a>
+        <a href="https://github.com/geode-sdk/geode/releases" target="_blank" rel="noopener">Official releases</a>
+        <a href="https://docs.geode-sdk.org" target="_blank" rel="noopener">Official docs</a>
+        <a href="https://geode-sdk.org/mods" target="_blank" rel="noopener">Mods Browser</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding: 5rem 0; text-align: center; background: radial-gradient(circle at 50% 0, rgba(108,92,231,.28), transparent 60%), var(--color-bg); }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: .5rem 0 1rem; }
+  .eyebrow { color: var(--color-accent); text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; font-weight: 700; }
+  .lead { max-width: 720px; margin: 0 auto 1.5rem; font-size: 1.1rem; color: var(--color-text-muted); }
+  .actions, .source-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .source-note { color: var(--color-text-muted); font-size: .85rem; margin-top: 1.5rem; }
+  .narrow { max-width: 840px; }
+  .shaded { background: var(--color-bg-secondary); }
+  .decision-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .decision-grid div { padding: 1.25rem; background: var(--color-bg-card); border-radius: var(--radius-md); border: 1px solid var(--color-border); }
+  .decision-grid p, .checklist p { margin: .5rem 0 0; color: var(--color-text-muted); }
+  .steps { display: grid; gap: 1rem; padding-left: 1.25rem; margin-top: 1rem; }
+  .warning, .checklist { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1.25rem; }
+  .warning { border-left: 4px solid var(--color-warning); margin-top: 1rem; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .sources { text-align: center; }
+  .source-links { margin-top: 1rem; }
+  kbd { background: var(--color-bg-secondary); border: 1px solid var(--color-border); border-radius: 4px; padding: .1rem .35rem; font-size: .85em; }
+  @media (max-width: 768px) {
+    .decision-grid, .two-col { grid-template-columns: 1fr; }
+    .hero { padding: 4rem 0; }
+  }
+</style>

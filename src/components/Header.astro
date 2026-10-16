@@ -11,9 +11,10 @@ const currentPath = Astro.url.pathname;
 
     <nav class="nav">
       <a href="/" class:list={['nav-link', { active: currentPath === '/' }]}>首页</a>
+      <a href="/install" class:list={['nav-link', { active: currentPath === '/install' }]}>安装与安全</a>
+      <a href="/compatibility" class:list={['nav-link', { active: currentPath === '/compatibility' || currentPath.startsWith('/compatibility') }]}>兼容性</a>
       <a href="/mods" class:list={['nav-link', { active: currentPath.startsWith('/mods') }]}>选模组</a>
       <a href="/recommend" class:list={['nav-link', { active: currentPath === '/recommend' }]}>新手清单</a>
-      <a href="/install" class:list={['nav-link', { active: currentPath === '/install' }]}>安装与安全</a>
     </nav>
 
     <div class="header-actions">
@@ -37,9 +38,10 @@ const currentPath = Astro.url.pathname;
 
   <div class="mobile-nav" id="mobileNav">
     <a href="/" class:list={['mobile-nav-link', { active: currentPath === '/' }]}>首页</a>
+    <a href="/install" class:list={['mobile-nav-link', { active: currentPath === '/install' }]}>安装与安全</a>
+    <a href="/compatibility" class:list={['mobile-nav-link', { active: currentPath === '/compatibility' || currentPath.startsWith('/compatibility') }]}>兼容性</a>
     <a href="/mods" class:list={['mobile-nav-link', { active: currentPath.startsWith('/mods') }]}>选模组</a>
     <a href="/recommend" class:list={['mobile-nav-link', { active: currentPath === '/recommend' }]}>新手清单</a>
-    <a href="/install" class:list={['mobile-nav-link', { active: currentPath === '/install' }]}>安装与安全</a>
     <a href="/install" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">官方安装</a>
   </div>
 </header>
